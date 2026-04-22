@@ -1,0 +1,44 @@
+name: Feature request
+description: Propose a new capability or improvement.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What business or user problem does this solve? Why now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What should the system do? Be specific about the user-visible behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds, competitors, or other approaches you looked at.
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Expected impact
+      description: Who benefits? Estimate on revenue, cost, adoption, or risk reduction if possible.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Mockups, links, data, or constraints the reviewer should know about.
+    validations:
+      required: false
