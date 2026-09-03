@@ -1,0 +1,60 @@
+# Reusable workflow: skan repozytorium pod katem sekretow.
+#
+# Uzycie w repo docelowym (.github/workflows/secrets.yml):
+#
+#   name: Sekrety
+#   on: [push, pull_request]
+#   jobs:
+#     gitleaks:
+#       uses: Do-More-Soft/.github/.github/workflows/gitleaks.yml@main
+#
+# Swiadomie NIE uzywamy gitleaks/gitleaks-action: dla organizacji wymaga
+# platnej licencji (GITLEAKS_LICENSE). Binarka z release'u robi to samo za darmo.
+
+name: gitleaks
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: Wersja gitleaks do pobrania
+        type: string
+        default: '8.30.1'
+      full-history:
+        description: Skanuj cala historie zamiast samego stanu roboczego
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # Skan historii wymaga pelnego klonu; domyslnie plytki, bo szybszy.
+          fetch-depth: ${{ inputs.full-history && 0 || 1 }}
+
+      - name: Pobierz gitleaks
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${{ inputs.version }}/gitleaks_${{ inputs.version }}_linux_x64.tar.gz" \
+            | tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
+
+      - name: Skanuj
+        run: |
+          if [ "${{ inputs.full-history }}" = "true" ]; then
+            gitleaks git --no-banner --redact --exit-code 1 --report-format sarif --report-path gitleaks.sarif .
+          else
+            gitleaks dir --no-banner --redact --exit-code 1 --report-format sarif --report-path gitleaks.sarif .
+          fi
+
+      - name: Zachowaj raport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-sarif
+          path: gitleaks.sarif
+          if-no-files-found: ignore
