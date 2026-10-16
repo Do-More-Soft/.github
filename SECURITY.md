@@ -27,7 +27,7 @@ Include, where possible:
 This policy covers:
 
 - All code repositories under the `Do-More-Soft` organization.
-- Do More Soft owned products and platforms (MoreSales, Kwadracik, CalMedic, Textio, MyCarApp, MoreNFC, MoreMobile, MoreCRM, MoreGenerator, GetMeCon, and others listed on [domoresoft.com](https://domoresoft.com/)).
+- Do More Soft owned products and platforms (MoreSales, MoreCRM, CalMedic, MyCarApp, OPTIO, MoreNFC, MoreMobile, DailyHair, listed on [domoresoft.com](https://domoresoft.com/)).
 - The `domoresoft.com` website and subdomains.
 
 Issues in third-party dependencies should be reported to their respective maintainers, with a copy to us if they affect our products.
