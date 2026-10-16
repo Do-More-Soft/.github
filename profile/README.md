@@ -2,7 +2,7 @@
 
 > Technology partner and venture builder — we build software that pays for itself.
 
-We are architects and operators, not subcontractors. Our portfolio includes a dozen live products we built, own, and operate ourselves, alongside custom systems delivered for enterprise, public sector, and SMB clients.
+We are architects and operators, not subcontractors. Our portfolio includes nine live products we built, own, and operate ourselves, alongside custom systems delivered for enterprise, public sector, and SMB clients.
 
 ---
 
@@ -10,7 +10,7 @@ We are architects and operators, not subcontractors. Our portfolio includes a do
 
 **Engineering partnership** — architectural audits, process automation, custom SaaS, PWA, Enterprise and GovTech platforms.
 
-**Venture building** — own product ecosystem (MoreSales, Kwadracik, CalMedic, Textio, MyCarApp, MoreNFC, MoreMobile, and more). Skin in the game.
+**Venture building** — own product ecosystem (MoreSales, MoreCRM, CalMedic, MyCarApp, OPTIO, MoreNFC, MoreMobile, and more). Skin in the game.
 
 **Rescue missions** — taking over and recovering IT projects other teams could not finish.
 
